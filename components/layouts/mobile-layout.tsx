@@ -37,7 +37,7 @@ export function MobileLayout({
       <Button 
         onClick={onAddTask} 
         size="icon" 
-        className="fixed bottom-8 left-1/2 -translate-x-1/2 rounded-full bg-white hover:bg-gray-100 shadow-xl"
+        className="fixed bottom-8 left-1/2 -translate-x-1/2 rounded-full bg-white hover:bg-gray-100 shadow-xl focus:outline-none"
       >
         <Plus className="h-6 w-6 text-black" />
       </Button>
