@@ -1,6 +1,6 @@
 "use client";
 
-import { startOfWeek, addDays } from "date-fns";
+import { startOfWeek, addDays, subDays } from "date-fns";
 import { WeekDay } from "./week-day";
 
 interface WeekViewProps {
@@ -9,12 +9,16 @@ interface WeekViewProps {
 }
 
 export function WeekView({ selectedDate, onSelectDate }: WeekViewProps) {
-  // Start week from Monday (weekStartsOn: 1)
-  const startDate = startOfWeek(selectedDate, { weekStartsOn: 1 });
-  const weekDays = Array.from({ length: 7 }, (_, i) => addDays(startDate, i));
+  const today = new Date();
+  // Get 3 days before and 3 days after today
+  const weekDays = [
+    ...Array(3).fill(0).map((_, i) => subDays(today, 3 - i)),
+    today,
+    ...Array(3).fill(0).map((_, i) => addDays(today, i + 1)),
+  ];
 
   return (
-    <div className="flex justify-between items-center gap-1">
+    <div className="flex justify-between items-center gap-1 border-x-0 border-y-0">
       {weekDays.map((date) => (
         <WeekDay
           key={date.toISOString()}

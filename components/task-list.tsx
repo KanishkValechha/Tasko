@@ -46,8 +46,8 @@ export function TaskList({ tasks }: TaskListProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               className={cn(
-                "group flex items-start space-x-4 bg-card p-4 rounded-lg shadow-md",
-                "hover:shadow-lg transition-shadow duration-200",
+                "group flex items-start space-x-4 bg-card p-4 rounded-lg shadow-xl",
+                "hover:shadow-2xl transition-shadow duration-200",
                 "lg:hover:scale-[1.02] lg:transform lg:transition-all"
               )}
             >
@@ -60,13 +60,13 @@ export function TaskList({ tasks }: TaskListProps) {
                 <p
                   className={cn(
                     task.completed ? "line-through text-muted-foreground" : "",
-                    "font-medium"
+                    " font-bold  text-xl"
                   )}
                 >
                   {task.title}
                 </p>
                 {task.description && (
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-xs text-muted-foreground">
                     {task.description}
                   </p>
                 )}

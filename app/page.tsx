@@ -22,13 +22,12 @@ export default function Home() {
 
   const taskContent = (
     <motion.div>
-      <div className="flex items-center justify-between mb-6">
-        <h2 className="text-xl font-semibold">
-          {format(selectedDate, "MMMM d, yyyy")}
+      <div className="flex items-center justify-between">
+        <h2 className="text-lg font-bold pt-4">
+          {format(selectedDate, "yyyy-MM-dd") === format(new Date(), "yyyy-MM-dd")
+            ? "Today"
+            : format(selectedDate, "MMMM d, yyyy")}
         </h2>
-        <span className="text-muted-foreground">
-          {filteredTasks.length} task{filteredTasks.length !== 1 ? "s" : ""}
-        </span>
       </div>
       <TaskList tasks={filteredTasks} />
     </motion.div>

@@ -15,7 +15,7 @@ export function MobileCalendar({
   selectedDate,
   onSelectDate,
 }: MobileCalendarProps) {
-  const [currentWeek, setCurrentWeek] = useState(selectedDate);
+  const [currentWeek, setCurrentWeek] = useState(new Date());
 
   const handlePreviousWeek = () => {
     setCurrentWeek((prev) => subWeeks(prev, 1));
@@ -31,9 +31,12 @@ export function MobileCalendar({
   };
 
   return (
-    <div className="bg-card rounded-lg shadow-sm border py-4 px-2">
-
-        <WeekView selectedDate={selectedDate} onSelectDate={handleDateSelect} />
+    <div
+      className="bg-card rounded-2xl  py-4 px-2 shadow-xl"
+    >
+      <WeekView selectedDate={selectedDate} onSelectDate={handleDateSelect} />
     </div>
   );
 }
+
+
